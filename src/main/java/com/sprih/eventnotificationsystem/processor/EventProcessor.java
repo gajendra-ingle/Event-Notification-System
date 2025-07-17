@@ -1,5 +1,9 @@
 package com.sprih.eventnotificationsystem.processor;
 
-public interface EventProcessor {
+import com.sprih.eventnotificationsystem.model.Event;
 
+public interface EventProcessor {
+	
+    void process(Event event);
 }
+
