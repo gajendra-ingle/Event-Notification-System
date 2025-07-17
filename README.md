@@ -137,18 +137,26 @@ Once processing completes, your system will receive an HTTP POST request to the 
 
 ### `POST /api/events`
 
-Create and enqueue a new event.
+Submits a new notification event for asynchronous processing and delivery.
 
-#### Request Format
+#### 📤 Request Format
 ```json
 {
-  "eventType": "EMAIL", // or SMS, PUSH
-  "payload": { ... },   // as per event type
+  "eventType": "EMAIL",
+  "payload": {
+    "recipient": "user@example.com",
+    "message": "Welcome to the service!"
+  },
   "callbackUrl": "http://client.com/callback"
 }
 ```
+> 📝 **Note**  
+> - **eventType**: `"EMAIL"`, `"SMS"`, `"PUSH"`  
+> - **payload**: Varies based on `eventType`  
+> - **callbackUrl**: For receiving async delivery status updates  
 
-#### Response
+
+#### 📥 Response Format
 ```json
 {
   "eventId": "e123",
